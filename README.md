@@ -3,7 +3,7 @@
   
   <p>This application was developed using React Native.</p>
 
-  <p>This project is based on an application for See weather updates.</p>
+  <p>This project is based on an application for see weather updates.</p>
   
 </h4>
 
