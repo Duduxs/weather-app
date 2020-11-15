@@ -71,4 +71,6 @@ This project is under the MIT license. See the [LICENSE](https://github.com/Dudu
 
 <h4 align="center">
     Made by Eduardo José 😆 <a href="https://www.linkedin.com/in/eduarddojose/" target="_blank">Contact me!</a>
+    </br>
+    <a href="https://github.com/clewertonx1/WeatherApp" target="_blank">Credits</a>
 </h4>
