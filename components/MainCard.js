@@ -48,7 +48,7 @@ const MainCard = (props) => {
     text: {
       color: "white",
       margin: 15,
-      fontSize: 16,
+      fontSize: 20,
     },
     cardIcon: {
       color: "white",
