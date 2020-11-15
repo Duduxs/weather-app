@@ -5,9 +5,11 @@ import MainCard from "./components/MainCard";
 import InfoCard from "./components/InfoCard";
 import * as Location from "expo-location";
 import getCurrentWeather from "./api/Api";
+import { FontAwesome5 } from '@expo/vector-icons'; 
 
 export default function App() {
   const [darkTheme, setDarkTheme] = useState(true);
+  const [english, setEnglish] = useState(false);
   const [currentTemperature, setCurrentTemperature] = useState("27");
   const [location, setLocation] = useState("BR, Pernambuco");
   const [currentHour, setCurrentHour] = useState("13:00");
@@ -86,6 +88,21 @@ export default function App() {
       height: 20,
       borderRadius: 20,
     },
+    themeLanguageButton:{
+      backgroundColor: darkTheme ? "#f2f2f2" : "#8f8f8f",
+      margin: 10,
+      marginTop: -55,
+      marginRight: 300,
+      alignItems: "center",
+      justifyContent: "center",
+      width: 40,
+      height: 40,
+      borderRadius: 25,
+    },
+    flagIcon:{
+      width: 50,
+      height: 50
+    }
   });
 
   function convertKelvintoC(kelvin) {
@@ -146,19 +163,19 @@ export default function App() {
 
       <View style={styles.cardView}>
         <MainCard
-          title={"Manhã"}
+          title={english ? "Morning" : "Manhã"}
           backgroundColor={darkTheme ? "#ff873d" : "#cc6e30"}
           temperature={"21°"}
           icon={"morning"}
         ></MainCard>
         <MainCard
-          title={"Tarde"}
+          title={english ? "Afternoon" : "Tarde"}
           backgroundColor={darkTheme ? "#D29600" : "#FCC63F"}
           temperature={"27°"}
           icon={"afternoon"}
         ></MainCard>
         <MainCard
-          title={"Noite"}
+          title={english ? "Night" : "Noite"}
           backgroundColor={darkTheme ? "#008081" : "#38B7D8"}
           temperature={"12°"}
           icon={"night"}
@@ -166,10 +183,10 @@ export default function App() {
       </View>
 
       <View style={styles.info}>
-        <Text style={styles.infoText}>Informações adicionais</Text>
+        <Text style={styles.infoText}>{english ? "More Info" : "Informações adicionais"}</Text>
         <View style={styles.infoCards}>
-          <InfoCard title={"Vento"} value={wind + " m/h"}></InfoCard>
-          <InfoCard title={"Umidade"} value={umidity + "%"}></InfoCard>
+          <InfoCard title={english ? "Wind" : "Vento"} value={wind + " m/h"}></InfoCard>
+          <InfoCard title={english ? "Humidity" : "Umidade"} value={umidity + "%"}></InfoCard>
           <InfoCard title={"Temp. Min"} value={tempMin + " °C"}></InfoCard>
           <InfoCard title={"Temp. Max"} value={tempMax + " °C"}></InfoCard>
         </View>
@@ -185,6 +202,17 @@ export default function App() {
           ></TouchableOpacity>
         </View>
       </View>
+
+      <View style={styles.themeLanguageButton}>
+          <TouchableOpacity
+            onPress={() =>
+              english ? setEnglish(false) : setEnglish(true)
+            }
+          >
+            <FontAwesome5 name="flag-usa" size={24} color="black" />
+          </TouchableOpacity>
+      </View>
+
     </View>
   );
 }
